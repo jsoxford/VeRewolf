@@ -5,6 +5,7 @@
     <title>VeRewolf</title>
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400" rel="stylesheet">
     <link rel="stylesheet" href="style.css" >
+
   </head>
   <body>
     <h1>VeRewolf</h1>
@@ -16,10 +17,48 @@
 
     {{#user}}
       <p><a href="/logout">Sign out {{username}}</a></p>
-      <p>{{username}}</p>
-
-      <img src="{{_json.profile_image_url}}"/>
-
+      <p> <img src="{{_json.profile_image_url}}" class="avatar"/> {{_json.name}}</p>
     {{/user}}
+
+    <hr />
+
+    <ul id="lounge">
+    </ul>
+
+    <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
+    <script type="text/javascript">
+
+      // Pusher.logToConsole = true
+
+      var pusher = new Pusher('{{pusher_config.KEY}}', {
+        cluster: '{{pusher_config.CLUSTER}}',
+        encrypted: true
+      })
+
+      var channel = pusher.subscribe('presence-lounge')
+
+      channel.bind('pusher:subscription_succeeded', renderMembers)
+      channel.bind('pusher:member_added', renderMembers)
+      channel.bind('pusher:member_removed', renderMembers)
+
+      function renderMembers(){
+        lounge.innerHTML = ''
+        channel.members.each(function(member){
+          var li = document.createElement('li')
+          var avatar = document.createElement('img')
+          var name = document.createTextNode(' ' + member.info.name)
+
+          avatar.src = member.info.image
+          avatar.className = 'avatar'
+          li.style.borderColor = member.info.color
+
+          li.appendChild(avatar)
+          li.appendChild(name)
+          lounge.appendChild(li)
+        })
+      }
+
+
+    </script>
   </body>
 </html>

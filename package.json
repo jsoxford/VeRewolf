@@ -1,0 +1,24 @@
+{
+  "name": "verewolf",
+  "version": "1.0.0",
+  "description": "Virtual Reality for Werewolves",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsoxford/VeRewolf.git"
+  },
+  "keywords": [
+    "Werewolves",
+    "Virtual",
+    "Reality"
+  ],
+  "author": "Max & Ben",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsoxford/VeRewolf/issues"
+  },
+  "homepage": "https://github.com/jsoxford/VeRewolf#readme"
+}

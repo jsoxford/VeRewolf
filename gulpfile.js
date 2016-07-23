@@ -7,6 +7,8 @@ var paths = {
 }
 
 gulp.task('build', function () {
-  gulp.src('')
+  return gulp.src(paths.src)
+    .pipe(pug())
+    .pipe(gulp.dest(paths.dist));
 });
 gulp.task('default', ['build']);

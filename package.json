@@ -22,7 +22,14 @@
   },
   "homepage": "https://github.com/jsoxford/VeRewolf#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "ioredis": "^2.2.0",
+    "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4"
   },

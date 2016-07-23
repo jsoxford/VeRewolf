@@ -13,6 +13,10 @@ const app = express()
 
 app.use(express.static('public'))
 
+
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
+
 passport.use(new Strategy({
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
@@ -58,7 +62,7 @@ app.get('/auth/twitter/callback',
     { failureRedirect: '/login' }
   ),
   (req, res) => {
-    res.redirect('/current')
+    res.redirect('/')
   })
 
 
@@ -68,5 +72,9 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/current', (req, res) => res.send(req.user || {user:'none'}))
+
+app.get('/', (req, res) => res.render('home', {
+  user: req.user
+}))
 
 app.listen(process.env.PORT || 3000)

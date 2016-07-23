@@ -2,4 +2,14 @@ doctype html
 html(lang="en")
   head
   body
-    h1 Max and Ben are awesome.
+    a-scene(
+      fog='type: linear; far: 10; color: #010104',
+    )
+      a-entity(
+        geometry='width: 2; height: 2; depth: 2;'
+        color='red'
+      )
+
+    script(
+      src='aframe-v0.2.0.min.js'
+    )

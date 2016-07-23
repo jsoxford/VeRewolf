@@ -1,0 +1,17 @@
+body {
+  font-family: 'Raleway', cursive;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poiret One', cursive;
+  margin:0
+}
+
+h1 {
+  font-size:4em;
+}
+
+a {
+  color: red
+}

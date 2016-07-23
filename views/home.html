@@ -3,21 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>VeRewolf</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" >
   </head>
   <body>
     <h1>VeRewolf</h1>
 
     {{^user}}
-      <h2><a href="/auth/twitter">Sign in with twitter</a></h2>
+      <p><a href="/auth/twitter">Sign in with twitter</a></p>
     {{/user}}
 
 
     {{#user}}
-      <h2><a href="/logout">Sign out {{username}}</a></h2>
-      {{username}}
+      <p><a href="/logout">Sign out {{username}}</a></p>
+      <p>{{username}}</p>
 
       <img src="{{_json.profile_image_url}}"/>
-      
+
     {{/user}}
   </body>
 </html>

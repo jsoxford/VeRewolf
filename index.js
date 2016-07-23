@@ -136,6 +136,7 @@ app.post('/', (req, res) => {
   gamedata = req.body.map(function (user, i) {
     return {
       id: user.id,
+      
       image: user.image,
       color: '#' + user.color,
       role: i == 0 ? 'wolf' : 'villager'

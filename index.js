@@ -16,7 +16,7 @@ const app = express()
 app.use(express.static('public'))
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 
 const pusher = new Pusher({
@@ -127,6 +127,32 @@ app.get('/current', (req, res) => res.send(req.user || {user:'none'}))
 app.get('/', (req, res) => res.render('home', {
   user: req.user
 }))
+
+var gamedata = []
+
+app.post('/', (req, res) => {
+
+  console.log("START GAME", req.body)
+  gamedata = req.body.map(function (user, i) {
+    return {
+      id: user.id,
+      image: user.image,
+      color: '#' + user.color,
+      role: i == 0 ? 'wolf' : 'villager'
+    }
+  })
+
+  pusher.get({ path: '/channels/presence-lounge/users' }, function(error, request, response) {
+    if (response.statusCode === 200) {
+        var result = JSON.parse(response.body)
+        console.log(result)
+    }
+  })
+
+  pusher.trigger('presence-lounge', 'start-game', {})
+
+  res.send("OK")
+})
 
 app.get('/play', (req, res) => res.render('play', {
   user: req.user,

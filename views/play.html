@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>VeRewolf Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" >
   </head>
   <body>
     {{#user}}
@@ -14,7 +16,7 @@
     {{/user}}
 
     <a-scene>
-      <a-assets>
+      <a-assets timeout="10">
         {{#each game}}
           <img src="{{image}}" id="avatarPlayer{{@index}}"/>
         {{/each}}

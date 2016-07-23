@@ -4,8 +4,7 @@
   "description": "Virtual Reality for Werewolves",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +25,9 @@
     "express": "^4.14.0",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.0.3"
   }
 }

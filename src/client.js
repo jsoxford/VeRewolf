@@ -6,16 +6,28 @@
         var angle = 0;
         var step = (2 * Math.PI) / players.length;
 
-        var width = 10;
-        var height = 10;
+        var width = 15 + players.length;
+        var height = 15 + players.length;
 
-        players.forEach(function() {
-            var x = Math.round(width / 2 + radius * Math.cos(angle) - 1 / 2);
-            var y = Math.round(height / 2 + radius * Math.sin(angle) - 1 / 2);
+        players.forEach(function(player) {
+            var x = Math.round(width / 2 + radius * Math.cos(angle) - 1) / 100;
+            var z = Math.round(height / 2 + radius * Math.sin(angle) - 1) / 100;
 
-            console.log(x, y);
+            var position = x + ' 0 ' + z;
+            var camera = document.querySelector('#camera');
+
+            player.setAttribute('position', position);
+            player.setAttribute('look-at', '0 0 0');
+
+            if (player.hasAttribute('data-current')) {
+              camera.setAttribute('position', position)
+              camera.setAttribute('look-at', '0 0 0');
+            }
+
 
             angle += step;
         });
     };
+    console.log('loaded');
+    positionPlayers(document.querySelectorAll('[data-player]'));
 }(window));

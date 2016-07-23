@@ -21,12 +21,16 @@
           <img src="{{image}}" id="avatarPlayer{{@index}}"/>
         {{/each}}
       </a-assets>
-      <a-camera></a-camera>
+      <a-camera id="camera" position='0 2 5' wasd-controls-enabled="false"></a-camera>
 
     {{#each game}}
       <a-entity
-        playerName="{{name}}"
-        playerRole="{{role}}"
+        data-name="{{name}}"
+        data-role="{{role}}"
+        data-player
+        {{#current}}
+          data-current
+        {{/current}}
         id="player{{@index}}"
         position="{{@index}} 0 -5"
       >
@@ -44,5 +48,6 @@
     </a-scene>
 
     <script src="aframe.min.js"></script>
+    <script src="client.js"></script>
   </body>
 </html>

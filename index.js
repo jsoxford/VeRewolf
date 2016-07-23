@@ -90,7 +90,8 @@ app.get('/play', (req, res) => res.render('play', {
     "image": "/avatar/tiger.png",
     "name": "Ben",
     "role": "villager",
-    "color": "#fc0"
+    "color": "#fc0",
+    "current": true
   },
   {
     "image": "/avatar/tiger.png",
@@ -103,6 +104,24 @@ app.get('/play', (req, res) => res.render('play', {
     "name": "Pete",
     "role": "villager",
     "color": "#f0c"
+  },
+  {
+    "image": "/avatar/wolf.jpg",
+    "name": "Max",
+    "role": "wolf",
+    "color": "#0f8"
+  },
+  {
+    "image": "/avatar/tiger.png",
+    "name": "Ben",
+    "role": "villager",
+    "color": "#fc0"
+  },
+  {
+    "image": "/avatar/tiger.png",
+    "name": "Ruth",
+    "role": "villager",
+    "color": "#0cf"
   }
 ]
 

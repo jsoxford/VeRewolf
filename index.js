@@ -77,4 +77,35 @@ app.get('/', (req, res) => res.render('home', {
   user: req.user
 }))
 
+app.get('/play', (req, res) => res.render('play', {
+  user: req.user,
+  game: [
+  {
+    "image": "/avatar/wolf.jpg",
+    "name": "Max",
+    "role": "wolf",
+    "color": "#0f8"
+  },
+  {
+    "image": "/avatar/tiger.png",
+    "name": "Ben",
+    "role": "villager",
+    "color": "#fc0"
+  },
+  {
+    "image": "/avatar/tiger.png",
+    "name": "Ruth",
+    "role": "villager",
+    "color": "#0cf"
+  },
+  {
+    "image": "/avatar/tiger.png",
+    "name": "Pete",
+    "role": "villager",
+    "color": "#f0c"
+  }
+]
+
+}))
+
 app.listen(process.env.PORT || 3000)

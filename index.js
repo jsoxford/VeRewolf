@@ -12,6 +12,14 @@ const bodyParser = require('body-parser')
 const redis = new Redis(process.env.REDIS_URL)
 const express = require('express')
 const app = express()
+const exphbs = require('express-handlebars')
+const hbs = exphbs.create({
+    helpers: {
+      json: function(obj) {
+        return JSON.stringify(obj);
+      }
+    }
+});
 
 app.use(express.static('public'))
 
@@ -35,8 +43,8 @@ app.locals.pusher_config = {
 
 // app.locals.PUSHER_CLU = process.env.PUSHER_CLU
 
-app.set('view engine', 'html');
-app.engine('html', require('hbs').__express);
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 passport.use(new Strategy({
     consumerKey: process.env.CONSUMER_KEY,
@@ -205,4 +213,4 @@ app.get('/play', (req, res) => res.render('play', {
 
 }))
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000, '0.0.0.0')

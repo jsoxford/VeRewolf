@@ -42,7 +42,7 @@
       var channel = pusher.subscribe('presence-lounge')
 
       channel.bind('start-game', function(){
-        window.location.href = '/start.html'
+        window.location.href = '/play'
       })
 
       channel.bind('pusher:subscription_succeeded', renderMembers)

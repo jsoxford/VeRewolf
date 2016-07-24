@@ -16,7 +16,30 @@ a {
   color: red
 }
 
-
 a-assets {
   display: none;
+}
+
+.avatar{
+  height: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+
+
+hr {
+  border:none;
+  border-bottom: 1px solid #ddd;
+  width: 10%;
+  margin: 2.5em auto;
+}
+
+ul {
+  padding:0
+}
+
+li {
+  list-style: none;
+  margin: 1em;
 }

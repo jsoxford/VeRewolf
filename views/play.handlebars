@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VeRewolf Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    {{#user}}
+      <h2><a href="/logout">Sign out {{username}}</a></h2>
+      <img src="{{_json.profile_image_url}}"/>
+    {{/user}}
+
+    <script>
+      var game = {{{json game}}};
+    </script>
+  </body>
+</html>

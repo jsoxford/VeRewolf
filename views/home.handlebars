@@ -22,12 +22,12 @@
 
     <hr />
 
-    <ul id="lounge">
+    <ul id="lounge" style="display: none">
     </ul>
 
-
-    <button>Play!</button>
-
+    {{#user}}
+      <button>Play!</button>
+    {{/user}}
 
     <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
     <script type="text/javascript">
@@ -50,6 +50,7 @@
       channel.bind('pusher:member_removed', renderMembers)
 
       function renderMembers(){
+        lounge.style.display = 'block';
         lounge.innerHTML = ''
         channel.members.each(function(member){
           var li = document.createElement('li')
